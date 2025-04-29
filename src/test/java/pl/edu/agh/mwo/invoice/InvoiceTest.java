@@ -124,4 +124,22 @@ public class InvoiceTest {
     public void testAddingNullProduct() {
         invoice.addProduct(null);
     }
+
+
+    @Test
+    public void testInvoiceToString(){
+        invoice.setInvoiceNumber("ASD");
+        invoice.addProduct(new TaxFreeProduct("Chleb", new BigDecimal("5")), 2);
+        invoice.addProduct(new DairyProduct("Chedar", new BigDecimal("10")), 3);
+        invoice.addProduct(new OtherProduct("Pinezka", new BigDecimal("0.01")), 1000);
+
+        String expected = """
+                Faktura: ASD
+                Chleb, 2 szt., 5.00
+                Chedar, 3 szt., 10.00
+                Pinezka, 1000 szt., 0.01
+                Liczba pozycji: 3""";
+
+        Assert.assertEquals(expected, invoice.getInvoiceAsString());
+    }
 }

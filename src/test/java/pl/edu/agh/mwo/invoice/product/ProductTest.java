@@ -6,7 +6,7 @@ import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 
-import pl.edu.agh.mwo.invoice.product.Product;
+import pl.edu.agh.mwo.invoice.Invoice;
 
 public class ProductTest {
     @Test
@@ -54,4 +54,7 @@ public class ProductTest {
     public void testProductWithNegativePrice() {
         new TaxFreeProduct("Mandarynki", new BigDecimal("-1.00"));
     }
+
 }
+
+
