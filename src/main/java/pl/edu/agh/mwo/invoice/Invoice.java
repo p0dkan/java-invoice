@@ -58,7 +58,7 @@ public class Invoice {
 
             sb.append(product.getName())
                     .append(", ").append(quantity)
-                    .append(" szt., ").append(product.getPrice().setScale(2))  // Cena z dwoma miejscami po przecinku
+                    .append(" szt., ").append(product.getPrice().setScale(2))
                     .append("\n");
         }
         sb.append("Liczba pozycji: ").append(productQuantity.size());

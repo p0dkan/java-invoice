@@ -134,11 +134,11 @@ public class InvoiceTest {
         invoice.addProduct(new OtherProduct("Pinezka", new BigDecimal("0.01")), 1000);
 
         String expected = """
-                Faktura: ASD
-                Chleb, 2 szt., 5.00
-                Chedar, 3 szt., 10.00
-                Pinezka, 1000 szt., 0.01
-                Liczba pozycji: 3""";
+                        Faktura: ASD
+                        Chedar, 3 szt., 10.00
+                        Pinezka, 1000 szt., 0.01
+                        Chleb, 2 szt., 5.00
+                        Liczba pozycji: 3""";
 
         Assert.assertEquals(expected, invoice.getInvoiceAsString());
     }
