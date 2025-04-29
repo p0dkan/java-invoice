@@ -135,9 +135,9 @@ public class InvoiceTest {
 
         String expected = """
                         Faktura: ASD
+                        Chleb, 2 szt., 5.00
                         Chedar, 3 szt., 10.00
                         Pinezka, 1000 szt., 0.01
-                        Chleb, 2 szt., 5.00
                         Liczba pozycji: 3""";
 
         Assert.assertEquals(expected, invoice.getInvoiceAsString());

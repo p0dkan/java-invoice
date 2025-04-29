@@ -2,13 +2,17 @@ package pl.edu.agh.mwo.invoice;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
+import pl.edu.agh.mwo.invoice.product.DairyProduct;
+import pl.edu.agh.mwo.invoice.product.OtherProduct;
 import pl.edu.agh.mwo.invoice.product.Product;
+import pl.edu.agh.mwo.invoice.product.TaxFreeProduct;
 
 public class Invoice {
     //    private Collection<Product> products = new ArrayList<>();
-    private HashMap<Product, Integer> productQuantity = new HashMap<>();
+    private Map<Product, Integer> productQuantity = new LinkedHashMap<>();
     private String invoiceNumber = "0";
 
     public void setInvoiceNumber(String invoiceNumber) {
@@ -64,5 +68,14 @@ public class Invoice {
         sb.append("Liczba pozycji: ").append(productQuantity.size());
 
         return sb.toString();
+    }
+
+    public static void main(String[] args){
+        Invoice invoice = new Invoice();
+        invoice.setInvoiceNumber("ASD");
+        invoice.addProduct(new TaxFreeProduct("Chleb", new BigDecimal("5")), 2);
+        invoice.addProduct(new DairyProduct("Chedar", new BigDecimal("10")), 3);
+        invoice.addProduct(new OtherProduct("Pinezka", new BigDecimal("0.01")), 1000);
+        System.out.println(invoice.getInvoiceAsString());
     }
 }
